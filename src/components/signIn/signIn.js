@@ -27,11 +27,11 @@ class SignIn extends Component {
     render() {
         return (
             <div className="signin">
-                <h1>I already have an account</h1>
+                <h2>I already have an account</h2>
                 <p>Sign in with your email and password</p>
                 <form action="">
-                    <Input label='email' value={this.state.email} handleChange={this.handleChange} />
-                    <Input label='password' value={this.state.password} handleChange={this.handleChange} />
+                    <Input label='email' name="email" value={this.state.email} handleChange={this.handleChange} />
+                    <Input label='password' name="password" value={this.state.password} handleChange={this.handleChange} />
                     <div className="buttons">
                         <Button type='submit'> Sign in </Button>
                         <Button onClick={signInWithGoogle} isGoogleSignIn>
