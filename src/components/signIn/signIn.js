@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import Input from '../input/input'
 import './signIn.scss'
 import Button from '../button/button'
-import { signInWithGoogle } from '../../firebase/firebase.utils'
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
 
 class SignIn extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             email: "",
@@ -14,9 +14,18 @@ class SignIn extends Component {
         }
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async event => {
         event.preventDefault();
-        this.setState({ email: '', password: '' })
+
+        const { email, password } = this.state;
+
+        try {
+            await auth.signInWithEmailAndPassword(email, password)
+            this.setState({ email: '', password: '' })
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     handleChange = (e) => {
@@ -29,7 +38,7 @@ class SignIn extends Component {
             <div className="signin">
                 <h2>I already have an account</h2>
                 <p>Sign in with your email and password</p>
-                <form action="">
+                <form onSubmit={this.handleSubmit} action="">
                     <Input label='email' name="email" value={this.state.email} handleChange={this.handleChange} />
                     <Input label='password' name="password" value={this.state.password} handleChange={this.handleChange} />
                     <div className="buttons">
