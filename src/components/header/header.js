@@ -4,12 +4,14 @@ import { ReactComponent as Logo } from '../../assets/crown.svg'
 import './header.scss'
 import { auth } from '../../firebase/firebase.utils'
 import { connect } from 'react-redux'
+import CartIcon from '../cart-icon/cart-icon'
+import CartDropdown from '../cart-dropdown/cart-dropdown'
 
 const Header = ({ currentUser }) => {
     return (
         <div className="header">
             <Link className='logo' to='/'>
-                <Logo title='Brand Logo' />
+                <Logo className="svg" title='Brand Logo' />
             </Link>
             <div className="options">
                 <Link className='option' to='/'>SHOP</Link>
@@ -24,8 +26,10 @@ const Header = ({ currentUser }) => {
                             <Link className='option' to='/signin'>SIGN IN</Link>
                         )
                 }
-                <Link className='option' to='/'>BAG</Link>
+                <CartIcon />
+
             </div>
+            <CartDropdown />
         </div>
     )
 }

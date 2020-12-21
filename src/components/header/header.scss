@@ -7,18 +7,24 @@
   //   margin-bottom: 25px;
 
   .logo {
-    width: 70px;
+    width: 80px;
     padding: 25px;
+
+    .svg {
+      height: 9vh;
+      width: 9vh;
+    }
   }
+
   .options {
-    width: 50%;
-    justify-content: flex-end;
+    width: 45%;
+    justify-content: space-around;
     display: flex;
     align-items: center;
 
     .option {
       padding: 25px;
-      font-size: 1.1rem;
+      font-size: 1.03rem;
       cursor: pointer;
     }
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Input from '../input/input'
-import Button from '../button/button'
+import Button from '../custom button/custom-button'
 import './signUp.scss'
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
 
